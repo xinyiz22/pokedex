@@ -19,20 +19,19 @@
 import json
 pokedex = open("./pokedex.json", encoding="utf8")
 data = json.load(pokedex)
-while True:
-    language = int(input("What language do you want to see your pokemon in? e for English/j for Japanese/c for Chinese/f or French"))
-    if () == "e":
-        print(data[english])
-        break
-    elif () == "j":
-        print(data[japanese])
-        break
-    elif () == "c":
-        print(data[chinese])
-        break
-    elif () == "f":
-        print(data[french])
-        break
+# while True:
+#     language = int(input("What language do you want to see your pokemon in? e for English/j for Japanese/c for Chinese/f or French"))
+#     if () == "e":
+#         print(data[english])
+#         break
+#     elif () == "j":
+#         print(data[japanese])
+#         break
+#     elif () == "c":
+#         print(data[chinese])
+#         break
+#     elif () == "f":
+#         print(data[french])
+#         break
 x = int(input("What pokemon do you want to see?"))
-print(data[i])
 print(data[x])
