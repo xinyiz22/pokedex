@@ -5,9 +5,9 @@
 # print(data[i])
 
 
-# # Add a language choice feature and print the pokemons name based on the user input
 
-# # Develop a function that creates a new list of pokemon based on the type the user searched for. If no pokemon was found of that type inform the user
+
+#If no pokemon was found of that type inform the user
 
 # #Develop a function to find all pokemon matching the name the user searched for. Ex. if "Char" return Charmander, Charmeleon and Charizard. Make the user aware if no pokemon was found. 
 
@@ -26,26 +26,28 @@ data = json.load(pokedex)
 # first()
 
 def poke():
-    x = int(input("What pokemon do you want to see?"))
-    print(data[x])
     language = input("What language do you want to see your pokemon in? English/Japanese/Chinese/French")
-    # for pokemon in data:
-    #     if language == "English":
-    #         print(pokemon["name"]["english"])
-    #     elif language == "Japanese":
-    #         print(pokemon["name"]["japanese"])
-    #     elif language == "Chinese":
-    #         print(pokemon["name"]["chinese"])
-    #     elif language == "French":
-    #         print(pokemon["name"]["french"])
-
     for pokemon in data:
-        if language == "e":
+        if language == "1":
             print(pokemon["name"]["english"])
-        elif language == "j":
+        elif language == "2":
             print(pokemon["name"]["japanese"])
-        elif language == "c":
+        elif language == "3":
             print(pokemon["name"]["chinese"])
-        elif language == "f":
+        elif language == "4":
             print(pokemon["name"]["french"])
+    # x = int(input("What pokemon do you want to see?"))
+    # print(data[x])
+    #need fix
 poke()
+
+def type():
+    question = input("What pokemon type are you looking for?")
+    found = False
+    for pokemon in data:
+        if question in [pokemon_type.lower() for pokemon_type in pokemon["type"]]:
+            print(pokemon["name"]["english"])
+            found=True
+    if not found:
+        print(f"Theres no valid {question} type")
+type()
