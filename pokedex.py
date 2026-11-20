@@ -4,15 +4,8 @@
 # i = int(input("What pokemon do you want to see?"))
 # print(data[i])
 
-
-
-
-#If no pokemon was found of that type inform the user
-
-# #Develop a function to find all pokemon matching the name the user searched for. Ex. if "Char" return Charmander, Charmeleon and Charizard. Make the user aware if no pokemon was found. 
-
-
-# #Based on user input, show all moves that a pokemon could learn based on their type. For example, if Charizard is fire/fyling, show all fire and flying moves. HINT import the moves.json file too!
+#Develop a function to find all pokemon matching the name the user searched for. Ex. if "Char" return Charmander, Charmeleon and Charizard. Make the user aware if no pokemon was found. 
+#Based on user input, show all moves that a pokemon could learn based on their type. For example, if Charizard is fire/fyling, show all fire and flying moves. HINT import the moves.json file too!
 
 
 
@@ -25,8 +18,8 @@ data = json.load(pokedex)
 #     print(data[x])
 # first()
 
-def poke():
-    language = input("What language do you want to see your pokemon in? English/Japanese/Chinese/French")
+def lang():
+    language = input("What language do you want to see your pokemon in? 1 for English/2 for Japanese/3 for Chinese/4 for French")
     for pokemon in data:
         if language == "1":
             print(pokemon["name"]["english"])
@@ -39,7 +32,7 @@ def poke():
     # x = int(input("What pokemon do you want to see?"))
     # print(data[x])
     #need fix
-poke()
+lang()
 
 def type():
     question = input("What pokemon type are you looking for?")
@@ -49,5 +42,16 @@ def type():
             print(pokemon["name"]["english"])
             found=True
     if not found:
-        print(f"Theres no valid {question} type")
+        print(f"Theres no valid {question}type")
 type()
+
+def poke():
+    ask = input("What kind of pokemon are you looking for?")
+    found = False
+    for pokemon in data:
+        if ask in [pokemon_name.lower() for pokemon_name in pokemon["name"]]:
+            print(pokemon["name"]["english"])
+            found=True                                                      
+    if not found:                                                                                                                               
+        print(f"Theres no valid {ask}pokemon")   
+poke()
