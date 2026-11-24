@@ -49,9 +49,22 @@ def poke():
     ask = input("What kind of pokemon are you looking for?")
     found = False
     for pokemon in data:
-        if ask in [pokemon_name.lower() for pokemon_name in pokemon["ask"]]:
-            print(pokemon["ask"]["english"])
+        if ask.lower() in pokemon["name"]["english"].lower():
+            print(pokemon["name"]["english"])
             found=True                                                      
     if not found:                                                                                                                               
         print(f"Theres no valid {ask} pokemon")   
 poke()
+
+# def poke():
+#     ask = input("What kind of pokemon are you looking for?")
+#     for pokemon in data:
+#         if pokemon["name"]["english"] == ["ask"]:
+#             print(pokemon["ask"]["english"])                                                    
+#     else:                                                                                                                               
+#         print(f"Theres no valid {ask} pokemon")   
+# poke()
+
+
+
+
