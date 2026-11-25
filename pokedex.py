@@ -41,15 +41,12 @@ poke()
 
 import json
 move = open("./moves.json", encoding="utf8")
-file = json.load(movesfile)
-
-def moves():
+cheese = json.load(moves.file)
+def apple():
     ask = input("What pokemon's possible moves would you like to see?")
-    found = False
-    for pokemon in file:
+    for moves in cheese:
         if ask.lower() in pokemon["name"]["english"].lower():
-            print(pokemon["name"]["english"])
-            found=True                                                      
-    if not found:                                                                                                                               
-        print(f"Theres no valid {ask} pokemon move")   
-poke()
+            print(pokemon["name"]["english"])                                                   
+        else:                                                                                                                               
+            print(f"Theres no valid {ask} pokemon move")   
+apple()
