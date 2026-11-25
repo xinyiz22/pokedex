@@ -1,22 +1,6 @@
-# import json
-# pokedex = open("./pokedex.json", encoding="utf8")
-# data = json.load(pokedex)
-# i = int(input("What pokemon do you want to see?"))
-# print(data[i])
-
-#Develop a function to find all pokemon matching the name the user searched for. Ex. if "Char" return Charmander, Charmeleon and Charizard. Make the user aware if no pokemon was found. 
-#Based on user input, show all moves that a pokemon could learn based on their type. For example, if Charizard is fire/fyling, show all fire and flying moves. HINT import the moves.json file too!
-
-
-
 import json
 pokedex = open("./pokedex.json", encoding="utf8")
 data = json.load(pokedex)
-
-# def first():
-#     x = int(input("What pokemon do you want to see?"))
-#     print(data[x])
-# first()
 
 def lang():
     language = input("What language do you want to see your pokemon in? 1 for English/2 for Japanese/3 for Chinese/4 for French")
@@ -29,9 +13,6 @@ def lang():
             print(pokemon["name"]["chinese"])
         elif language == "4":
             print(pokemon["name"]["french"])
-    # x = int(input("What pokemon do you want to see?"))
-    # print(data[x])
-    #need fix
 lang()
 
 def type():
@@ -56,15 +37,19 @@ def poke():
         print(f"Theres no valid {ask} pokemon")   
 poke()
 
-# def poke():
-#     ask = input("What kind of pokemon are you looking for?")
-#     for pokemon in data:
-#         if pokemon["name"]["english"] == ["ask"]:
-#             print(pokemon["ask"]["english"])                                                    
-#     else:                                                                                                                               
-#         print(f"Theres no valid {ask} pokemon")   
-# poke()
+#Based on user input, show all moves that a pokemon could learn based on their type. For example, if Charizard is fire/fyling, show all fire and flying moves. HINT import the moves.json file too!
 
+import json
+move = open("./moves.json", encoding="utf8")
+file = json.load(movesfile)
 
-
-
+def moves():
+    ask = input("What pokemon's possible moves would you like to see?")
+    found = False
+    for pokemon in file:
+        if ask.lower() in pokemon["name"]["english"].lower():
+            print(pokemon["name"]["english"])
+            found=True                                                      
+    if not found:                                                                                                                               
+        print(f"Theres no valid {ask} pokemon move")   
+poke()
